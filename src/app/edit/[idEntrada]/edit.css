@@ -1,0 +1,9 @@
+.ql-editor {
+    background-color: white;
+}
+.ql-toolbar {
+    border: none !important;
+    border-bottom: 1px solid #ccc !important;
+    padding-bottom: 1rem !important;
+}
+

@@ -1,0 +1,21 @@
+.header {
+    height: 4rem;
+    border-bottom: 1px solid rgb(236, 239, 241);
+    display: flex;
+    align-items: center;
+    padding: 0 .8rem;
+}
+.logo {
+    margin-left: .3rem;
+}
+.tres {
+    height: 3rem;
+    width: fit-content;
+    border-radius: 50%;
+    color:#181818;
+    padding: .7rem;
+}
+.tres:hover {
+    cursor: pointer;
+    background-color: rgb(223, 223, 223) ;
+}
