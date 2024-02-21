@@ -1,6 +1,6 @@
 import styles from './main.module.css'
 
-export default function Main({children, onAction}) {
+export default function Main({childrenProp, onAction}) {
 
   const [animacion] = onAction
   
@@ -9,7 +9,7 @@ export default function Main({children, onAction}) {
       style={{width:animacion[1]}} 
       className={styles.main}
     >
-      {children}
+      {childrenProp}
     </main>
   )
 }

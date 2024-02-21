@@ -19,7 +19,7 @@ export default function Sector1({ children }) {
         />
         <Main
           onAction = {[animacion, setAnimacion]} 
-          children= {children}
+          childrenProp= {children}
         />
       </div>
     </>   
