@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 export default function Lateral({onAction}) {
 
   async function  crearEntrada (entrada) {
-    const response = await fetch('http://localhost:3001/api/entrada', 
+    const response = await fetch( `${process.env.NEXT_PUBLIC_BACKEND_URL_ONRENDER}/entrada`,
         {   
             method: 'POST',
             headers: {'Content-Type': 'application/json'},

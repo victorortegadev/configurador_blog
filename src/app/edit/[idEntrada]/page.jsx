@@ -24,14 +24,14 @@ export default function PageSector2({params}) {
     })
 
     async function  pedirEntrada (id) { 
-        const response = await fetch(`http://localhost:3001/api/entrada/${id}`)
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL_ONRENDER}/entrada/${id}`)
       
         const entrada = await response.json()
         return entrada
     }
 
     async function  actualizarEntrada (id, entrada) {
-        const response = await fetch(`http://localhost:3001/api/entrada/${id}`, 
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL_ONRENDER}/entrada/${id}`, 
             {   
                 method: 'PUT',
                 headers: {'Content-Type': 'application/json'},

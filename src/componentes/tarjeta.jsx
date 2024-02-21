@@ -8,9 +8,9 @@ export default function Tarjeta({titulo ,id, borradoProp, fecha}) {
 
     const [borrado, setBorrado] = borradoProp
 
-    async function  borrarEntrada (id) {
+    async function  borrarEntrada (id) { 
         const response = await fetch(
-            `http://localhost:3001/api/entrada/${id}`,
+            `${process.env.NEXT_PUBLIC_BACKEND_URL_ONRENDER}/entrada/${id}`,
             {method:'DELETE'}
         )
         const respuesta = await response.json()
