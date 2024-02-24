@@ -15,6 +15,7 @@ export default function Lateral({onAction}) {
     const entradaCreada = await response.json()
     return entradaCreada
   }
+
   const obtenerFecha = ()=> {
 
     const date = new Date()
@@ -33,7 +34,7 @@ export default function Lateral({onAction}) {
 }
 
   const router = useRouter()
-  const [animacion, setAnimacion] = onAction
+  const [animacion] = onAction
   
   return (
     <nav style={{transform:animacion[0]}} className={styles.lateral}>
