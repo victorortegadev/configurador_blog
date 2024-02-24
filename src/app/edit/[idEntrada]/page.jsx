@@ -85,6 +85,7 @@ export default function PageSector2({params}) {
             <div className={style.bajo}>
                 <div className={style.nota}>
                     <div className={style.quillref} /*ref={quillRef}*/>
+                        {entrada.textoplanovisible}
                     </div>
                 </div>
 
