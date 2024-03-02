@@ -2,3 +2,6 @@
     transition: all 1s;    
   }
 
+.marco_mayor {
+  height: 100vh;
+}

@@ -2,9 +2,8 @@
     display: inline-block;
     position:absolute;
     right: 0;
-    width: calc(100% - 300px);
+    width: calc(100% - 17rem);
     height: calc(100% - 4rem);
-
 
     transition: all .5s;
 

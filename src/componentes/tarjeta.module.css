@@ -19,6 +19,7 @@
     margin-right:1rem;
     border-radius: 5px;
     color: #6b84ca;
+    user-select: none; 
 }
 .datos {
     display: flex;

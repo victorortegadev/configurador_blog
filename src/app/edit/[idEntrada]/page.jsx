@@ -40,7 +40,7 @@ export default function PageSector2({params}) {
         )
       
         const entradaActualizada = await response.json()
-        console.log(entradaActualizada) 
+        return entradaActualizada
     }
 
     useEffect(() => { pedirEntrada(params.idEntrada).then(entrada2=> { setEntrada(entrada2) } )}, [])

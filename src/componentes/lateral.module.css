@@ -1,31 +1,70 @@
 .lateral {
     transition: all .5s;
     display: inline-block;
-    width: 17rem;
+    width: 17rem ;
     overflow: auto;
     position: absolute;
     height: calc(100% - 4rem);
     padding-right: 2rem;
     border-right: 1px solid #181818;
+    padding-top: .5rem;
+    user-select: none; 
 }
 .linea {
     height: 1px;
     background-color:  rgb(236, 239, 241);
-    margin: .5rem 0rem;
+    margin: .4rem 0rem;
     margin-right: 2rem;
 }
-.selectblog{
-   padding-top: 1rem;
-    padding-left: 1rem;
+.seleccionador_blog{
+    cursor: pointer;
+    background: linear-gradient(to var(--variable-gradiente-foco),  rgb(240, 240, 240) , rgb(246, 246, 246) );
+   /* background-position: 100% 50%;*/
+    color:  var(--variable-color);
+   background-repeat: no-repeat;
+    background-size: 0% 100%;
 }
-.select {
-   
-    width: 100%;
+.animacionGradiente {
+    animation: gradiente .15s;
+    animation-fill-mode: forwards;
+}
+@keyframes gradiente {
+     0% {   
+       
+        background-size: 0% 100%; 
+      }
+      100% {
+        background-size: 100% 100%; 
+      }
+}
+.seleccionador_blog p{
+    padding-left: 1rem;
+    padding-top:.8rem;
+    padding-bottom: .8rem;
+}
+.seleccionado {
+    background-color: rgb(223, 223, 223) ;
+}
+.seleccionador_blog_lista {
+    position: absolute;
+    top:0;
+    width: calc(15rem - 1px);
+    background-color: white;
+    box-shadow: 5px -5px 8px rgba(68, 68, 68, 0.14),0px 5px 8px rgba(68, 68, 68, 0.14);
+    margin-top: .5rem;
+    cursor: pointer;
+}
+.lista_inicio{
+    padding-top:.8rem;
+    padding-bottom: .8rem;
+    padding-left: 1rem;
+    color: rgb(161, 161, 161);
 }
 .crearentrada{
+    cursor: pointer;
     padding: .6rem .8rem;
     border-radius: 2rem;
-    margin: 1.5rem 0rem;
+    margin: 1.3rem 0rem;
     margin-left: 1rem ;
     box-shadow: 0px 2px 2px 0px rgba(0,0,0,.14), 0px 3px 1px -2px rgba(0,0,0,.12), 0px 1px 5px 0px rgba(0,0,0,.2);
     color: #f57c00;
@@ -42,3 +81,31 @@
 .verblog {
     padding-left: 3rem;
 }
+
+/*///////////////////////////////////////para recordar
+
+/*.seleccionador_blog{
+    cursor: pointer;*/
+   /* background: linear-gradient(to right,  rgb(223, 223, 223) 50%, white 0%);
+    background-size: 200% 100%; 
+    background-position: 100% 50%;*/
+    /*background: radial-gradient();
+}
+.animacionGradiente {
+    animation: gradiente .5s ;
+}
+@keyframes gradiente {
+    /*  0% {
+          background-position: 100% 50%;
+      }
+      100% {
+          background-position: 0% 50%;
+      }*/
+  
+    /*  0% {
+          background-position: 100% 50%;
+      }
+      100% {
+          background-position: 200% 50%;
+      }*/
+ /* }*/
