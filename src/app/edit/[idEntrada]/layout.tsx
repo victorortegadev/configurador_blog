@@ -1,11 +1,11 @@
-import Header from "@/componentes/Header";
+import Header from "../../../componentes/Header";
 
 
 export default function Sector2({children}) {
 
     return (
         <>
-            <Header/>
+            <Header  onAction = {null}/>
             {children}
         </>
     )

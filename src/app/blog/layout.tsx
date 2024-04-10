@@ -1,7 +1,10 @@
 'use client'
-import Header from "@/componentes/Header";
-import Lateral from "@/componentes/Lateral";
-import Main from "@/componentes/Main";
+//import Header from "@/componentes/Header";
+import Header from '../../componentes/Header';
+//import Lateral from "@/componentes/Lateral";
+import Lateral from '../../componentes/Lateral';
+//import Main from "@/componentes/Main";
+import Main from '../../componentes/Main'
 import styles from './sector1.module.css'
 import { useState } from "react";
 

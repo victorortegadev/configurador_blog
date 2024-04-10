@@ -17,6 +17,7 @@
     margin-right: 2rem;
 }
 .seleccionador_blog{
+    /*--variable-gradiente-foco: ;*/
     cursor: pointer;
     background: linear-gradient(to var(--variable-gradiente-foco),  rgb(240, 240, 240) , rgb(246, 246, 246) );
    /* background-position: 100% 50%;*/

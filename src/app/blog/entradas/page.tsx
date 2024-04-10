@@ -1,7 +1,8 @@
 'use client'
 import { useEffect, useState } from 'react'
 import styles from'./entradas.module.css'
-import Tarjeta from '@/componentes/tarjeta'
+//import Tarjeta from '@/componentes/tarjeta'
+import Tarjeta from '../../../componentes/tarjeta'
 
 export default function Entradas() {
 

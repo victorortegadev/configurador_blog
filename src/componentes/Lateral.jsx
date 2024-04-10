@@ -45,7 +45,7 @@ export default function Lateral({onAction, displayListaProp, blogIndiceProp}) {
   const [blogIndice, setBlogIndice]= blogIndiceProp
 
   const [animacionGradiente, setAnimacionGradiente] = useState(false)
-  const [porcentajeGradiente, setPorcentajeGradiente] = useState('')
+  const [porcentajeGradiente, setPorcentajeGradiente] = useState(0)
 
   const listaBlogs = ['Mi primer blog','Mi segundo blog', 'Mi tercer blog']
 
@@ -63,7 +63,7 @@ export default function Lateral({onAction, displayListaProp, blogIndiceProp}) {
         onPointerDown={(e)=> {setPorcentajeGradiente(porcentajeClick(e)), setAnimacionGradiente(true)}} 
         onClick={(e) => {  setDisplayLista(!displayLista)  }} 
         className={`${styles.seleccionador_blog} ${!animacionGradiente?'': styles.animacionGradiente}`} 
-        style={{backgroundPosition: `${porcentajeGradiente}% 50%`, '--variable-gradiente-foco': porcentajeGradiente <= 50 ? 'right' : 'left' }}
+        style={{backgroundPosition: `${porcentajeGradiente}% 50% `, '--variable-gradiente-foco': porcentajeGradiente <= 50 ? 'right' : 'left' }}
       >
         <p>Mi primer blog</p>
       </div>
@@ -89,10 +89,10 @@ export default function Lateral({onAction, displayListaProp, blogIndiceProp}) {
       <button 
         name="boton-blog"
         className={styles.crearentrada}
-        onPointerDown={(e)=> {e.target.style.backgroundColor= 'rgba(255, 87, 34, .25)'}} 
+        onPointerDown={(e)=> {/*console.log(e.target)*/e.target.style.backgroundColor= 'rgba(255, 87, 34, .25)'}} 
         onPointerOut={(e)=> {e.target.style.backgroundColor='transparent'}}
         onClick={(e) => {
-          e.target.style.backgroundColor= 'white'
+          e.target.style.backgroundColor= 'transparent'
           crearEntrada(
             {
               titulo: "",

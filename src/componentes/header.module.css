@@ -5,6 +5,11 @@
     align-items: center;
     padding: 0 .8rem;
     user-select: none; 
+    justify-content: space-between;
+}
+.izquierda{
+    display: flex;
+    align-items: center;
 }
 .logo {
     margin-left: .3rem;
@@ -19,4 +24,14 @@
 }
 .tres:hover {
     background-color: rgb(223, 223, 223) ;
+}
+.user_image_div{
+    margin-right: .5rem;
+
+    display: flex;
+    align-items: center;
+}
+.user_image_img{
+    border-radius: 50%;
+    height: 2.1rem;
 }
