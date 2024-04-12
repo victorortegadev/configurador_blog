@@ -2,6 +2,7 @@
 import { useRouter } from 'next/navigation'
 import styles from './header.module.css'
 import {signOut, useSession} from "next-auth/react"
+import { useEffect, useState } from 'react'
 
 export default function Header({onAction}) {
 
@@ -9,6 +10,10 @@ export default function Header({onAction}) {
 
   const [animacion, setAnimacion] = onAction ? onAction : ''
   const {data: session} = useSession()
+
+  const [sessionIS, setSessionIS] = useState('')
+
+  useEffect(()=> {setSessionIS(session? session.user.image : '')}, [session])
 
   return (
     <header className={styles.header} >
@@ -29,13 +34,12 @@ export default function Header({onAction}) {
       </div>
 
       <div className={styles.user_image_div}>
-        <img className={styles.user_image_img} src={session?session.user.image : ''}></img>
+        <img className={styles.user_image_img} src={sessionIS}></img>
       </div>
 
-      <p onClick={()=> {signOut()}}>
+      <p className={styles.cerrarSesion} onClick={()=> {signOut( {callbackUrl:'http://localhost:3000'})}}>
         cerrar sesion
       </p>    
-
     </header>
   )
 }
