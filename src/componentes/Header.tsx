@@ -37,9 +37,9 @@ export default function Header({onAction}) {
         <img className={styles.user_image_img} src={sessionIS}></img>
       </div>
 
-      <p className={styles.cerrarSesion} onClick={()=> {signOut( {callbackUrl:'http://localhost:3000'})}}>
+      <p className={styles.cerrarSesion} onClick={()=> {signOut( {callbackUrl: process.env.NEXT_PUBLIC_URL})}}>
         cerrar sesion
-      </p>    
+      </p>   
     </header>
   )
 }

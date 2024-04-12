@@ -10,7 +10,7 @@ export default function Page() {
     useEffect(()=> {session? router.push('http://localhost:3000/blog/entradas') : ''}, [])*/
 
     return (
-        <p onClick={()=> {signIn(undefined, {callbackUrl:'http://localhost:3000/blog/entradas'})}}>
+        <p onClick={()=> {signIn(undefined, {callbackUrl: `${process.env.NEXT_PUBLIC_URL}/blog/entradas`})}}>
             Iniciar sesión
         </p>
     )
