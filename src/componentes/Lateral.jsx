@@ -1,8 +1,10 @@
 "use client"
 import {useState } from 'react'
 import styles from './lateral.module.css'
-import { useRouter } from 'next/navigation'
+//import { useRouter } from 'next/navigation'
 import { usePathname } from 'next/navigation'
+import Link from 'next/link'
+import { useRouter } from 'next-nprogress-bar';
 
 export default function Lateral({onAction, displayListaProp, blogIndiceProp}) {
 
@@ -108,34 +110,33 @@ export default function Lateral({onAction, displayListaProp, blogIndiceProp}) {
       <div className={styles.linea}/>  
 
       <ul className={styles.listaul}>
-        <li onClick={() => {router.push('/blog/entradas')  }  }>
-          <a style={{ color: pathname == "/blog/entradas"?  '#f57c00' : ''}}>
+        <li>
+          <Link href='/blog/entradas' style={{ color: pathname == "/blog/entradas"?  '#f57c00' : ''}}>
             Entradas
-          </a>
+          </Link>
         </li>
-        <li onClick={() => {router.push('/blog/estadisticas')}}>
-          <a style={{ color: pathname == "/blog/estadisticas"?  '#f57c00' : ''}}> Estadisticas</a>
+        <li>
+          <Link href='/blog/estadisticas' style={{ color: pathname == "/blog/estadisticas"?  '#f57c00' : ''}}> Estadisticas</Link>
         </li>
-        <li onClick={() => {router.push('/blog/comentarios')}} >
-          <a style={{ color: pathname == "/blog/comentarios"?  '#f57c00' : ''}}>Comentarios</a>
+        <li>
+          <Link href='/blog/comentarios' style={{ color: pathname == "/blog/comentarios"?  '#f57c00' : ''}}>Comentarios</Link>
         </li>
-        <li onClick={() => {router.push('/blog/diseno')}}>
-          <a style={{ color: pathname == "/blog/diseno"?  '#f57c00' : ''}}>Diseño</a>
+        <li>
+          <Link href='/blog/diseno' style={{ color: pathname == "/blog/diseno"?  '#f57c00' : ''}}>Diseño</Link>
         </li>
-        <li onClick={() => {router.push('/blog/tema')}}>
-          <a style={{ color: pathname == "/blog/tema"?  '#f57c00' : ''}}>Tema</a>
+        <li>
+          <Link href='/blog/tema' style={{ color: pathname == "/blog/tema"?  '#f57c00' : ''}}>Tema</Link>
         </li>
-        <li onClick={() => {router.push('/blog/configuracion')}}>
-          <a style={{ color: pathname == "/blog/configuracion"?  '#f57c00' : ''}}>Configuracion</a>
+        <li>
+          <Link href='/blog/configuracion' style={{ color: pathname == "/blog/configuracion"?  '#f57c00' : ''}}>Configuracion</Link>
         </li>
-        <li onClick={() => {router.push('/blog/lectura')}}>
-          <a style={{ color: pathname == "/blog/lectura"?  '#f57c00' : ''}}>Lista de lectura</a>
+        <li>
+          <Link  href='/blog/lectura' style={{ color: pathname == "/blog/lectura"?  '#f57c00' : ''}}>Lista de lectura</Link>
         </li>
       </ul>
+      <div className={styles.linea}/> 
 
-      <div className={styles.linea}/>
-
-      <p className={styles.verblog}><a onClick={() => {router.push('/')}} >Ver blog</a></p>
+      <div className={styles.verblog}><a href={process.env.NEXT_PUBLIC_URL_BLOG} target="_blank">Ver blog</a></div>
     </nav>
   )
 }

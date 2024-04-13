@@ -1,6 +1,7 @@
 'use client'
 import { useRouter } from 'next/navigation'
 import styles from './tarjeta.module.css'
+import Link from 'next/link'
 
 export default function Tarjeta({titulo ,id, borradoProp, fecha}) {
 
@@ -20,13 +21,13 @@ export default function Tarjeta({titulo ,id, borradoProp, fecha}) {
     return (
         <>       
                 <div className={styles.tarjeta}>
-                    <div onClick={()=> {router.push(`/edit/${id}`)} }  className={styles.datos}>
+                    <Link href={`/edit/${id}`}  className={styles.datos}>
                         <div className={styles.inicial}>{ titulo? titulo.charAt(0).toUpperCase() : 'S'}</div>
                         <div className={styles.info}>
                             <p>{titulo? titulo : '(sin titulo)'}</p>
                             <p>{!fecha ? 'no fecha' : fecha}</p>
                         </div>
-                    </div>
+                    </Link>
                     <div className={styles.borrar} onClick={()=> { borrarEntrada(id); setBorrado(true) } }>
                         borrar entrada
                     </div>

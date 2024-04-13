@@ -72,15 +72,20 @@
 }
 
 .listaul li {
-    padding: 1rem 3rem;
-    padding-left: 3rem;
     cursor: pointer;
 }
 .listaul li:hover {
     background-color: rgb(223, 223, 223) ;
 }
+.listaul li a{
+    padding: 1rem 3rem;
+    padding-left: 3rem;
+}
 .verblog {
     padding-left: 3rem;
+    cursor: pointer; 
+    color: #00838f;
+    font-weight: bold;
 }
 
 /*///////////////////////////////////////para recordar

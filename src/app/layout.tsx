@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 
 import { Providers } from './providers'
+import ProviderBarra from '../context/ProviderBarra'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +16,9 @@ export default function RootLayout({ children }) {
     <html lang="es">
       <body className={inter.className}> 
         <Providers>
-          {children}
+          <ProviderBarra>
+            {children}
+          </ProviderBarra>
         </Providers>
       </body>
     </html>
