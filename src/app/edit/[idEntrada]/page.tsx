@@ -24,11 +24,11 @@ export default function PageSector2({params}) {
 
     const [acordeon, setAcordeon]= useState(0)
 
-    /*const {quill, quillRef} = useQuill({
+    const {quill, quillRef} = useQuill({
         modules: {
             toolbar: toolbar
         }
-    })*/
+    })
 
     async function  pedirEntrada (id) { 
         const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL_ONRENDER}/entrada/${id}`)
@@ -51,7 +51,7 @@ export default function PageSector2({params}) {
     }
 
     useEffect(() => { pedirEntrada(params.idEntrada).then(entrada2=> { setEntrada(entrada2)} )}, [])
-    //useEffect(() => { quill && entrada.texto ? quill.setContents(JSON.parse(entrada.texto)) : '' }, [quill? quill : '', entrada])
+    useEffect(() => { quill && entrada.texto ? quill.setContents(JSON.parse(entrada.texto)) : '' }, [quill? quill : '', entrada])
 
     return (
         <div className={style.editor}>
@@ -72,7 +72,7 @@ export default function PageSector2({params}) {
 
                 <div 
                     className={style.botonactualizar} 
-                    /*onClick={() =>
+                    onClick={() =>
                         {
                             actualizarEntrada(params.idEntrada,
                                 {
@@ -84,15 +84,15 @@ export default function PageSector2({params}) {
                                 }
                             ) 
                         } 
-                    }*/
+                    }
                 >   
                     Actualizar
                 </div>  
             </div>
             <div className={style.bajo}>
                 <div className={style.nota}>
-                    <div className={style.quillref} /*ref={quillRef}*/>
-                        { entrada.textoplanovisible}
+                    <div className={style.quillref} ref={quillRef}>
+                       
                     </div>
                 </div>
 
