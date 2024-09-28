@@ -10,7 +10,7 @@ export default function Entradas() {
     const [borrado, setBorrado] = useState(false)
 
     async function  pedirEntradas  () { 
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL_ONRENDER}/entradas`)
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/entradas`)
       
         const entradas = await response.json()
        return entradas

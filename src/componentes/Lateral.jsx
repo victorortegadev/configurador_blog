@@ -9,7 +9,7 @@ import { useRouter } from 'next-nprogress-bar';
 export default function Lateral({onAction, displayListaProp, blogIndiceProp}) {
 
   async function  crearEntrada (entrada) {
-    const response = await fetch( `${process.env.NEXT_PUBLIC_BACKEND_URL_ONRENDER}/entrada`,
+    const response = await fetch( `${process.env.NEXT_PUBLIC_BACKEND_URL}/entrada`,
         {   
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -20,6 +20,18 @@ export default function Lateral({onAction, displayListaProp, blogIndiceProp}) {
     const entradaCreada = await response.json()
     return entradaCreada
   }
+  /*
+      onClick={(e) => {
+      e.target.style.backgroundColor= 'transparent'
+      crearEntrada(
+        {
+          titulo: "",
+          texto: "",
+          fecha: obtenerFecha()
+        }
+      ).then(entrada => {  router.push(`/edit/${entrada.id}`) })
+    }}
+  */
 
   const obtenerFecha = ()=> {
 

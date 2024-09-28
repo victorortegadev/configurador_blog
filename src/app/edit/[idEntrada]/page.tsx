@@ -31,14 +31,14 @@ export default function PageSector2({params}) {
     })
 
     async function  pedirEntrada (id) { 
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL_ONRENDER}/entrada/${id}`)
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/entrada/${id}`)
       
         const entrada = await response.json()
         return entrada
     }
 
     async function  actualizarEntrada (id, entrada) {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL_ONRENDER}/entrada/${id}`, 
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/entrada/${id}`, 
             {   
                 method: 'PUT',
                 headers: {'Content-Type': 'application/json'},
