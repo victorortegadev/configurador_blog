@@ -2,3 +2,49 @@
     min-height: 100%;
     padding: 2rem;
 }
+.no_entradas{
+    text-align: center;
+    margin-top: 5rem;
+}
+.no_entradas p:nth-child(2){
+    color:#547e7a;
+    font-size: .9em;
+    margin-top: .3rem;
+}
+/*/////loader///////*/
+.contenedor_loader{ 
+    font-weight: 900;
+    display: grid;
+    color: #000;
+    padding-top: 5rem;
+    padding-left: 5rem;
+    position: absolute;
+    top: 0;
+}
+.cargando{   
+position: relative; 
+color: #f57c00;
+margin-top: 2em;
+letter-spacing: 0.08em;
+text-transform: uppercase
+}
+
+.rueda {
+border: 10px solid  #ffc58c;
+border-radius: 50%;
+border-left-color: transparent;
+width: 80px;
+height: 80px;
+animation: giro 1s linear infinite;
+}
+
+@keyframes giro {
+0% {
+    transform: rotate(0deg);
+}
+
+100% {
+    transform: rotate(360deg);
+}
+}
+

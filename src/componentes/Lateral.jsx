@@ -103,7 +103,7 @@ export default function Lateral({onAction, displayListaProp, blogIndiceProp}) {
       <button 
         name="boton-blog"
         className={styles.crearentrada}
-        onPointerDown={(e)=> {/*console.log(e.target)*/e.target.style.backgroundColor= 'rgba(255, 87, 34, .25)'}} 
+        onPointerDown={(e)=> {e.target.style.backgroundColor= 'rgba(255, 87, 34, .25)'}} 
         onPointerOut={(e)=> {e.target.style.backgroundColor='transparent'}}
         onClick={(e) => {
           e.target.style.backgroundColor= 'transparent'

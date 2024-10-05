@@ -2,7 +2,6 @@
 
 export default function Diseño() {
 
-    console.log('holasdalsdoa')
     return (
         <p>Diseño</p>
     )

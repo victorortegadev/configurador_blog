@@ -1,0 +1,34 @@
+.nota{
+    background-color: rgb(59, 59, 59);
+    color: white;
+    position:fixed;
+    display: flex;
+    align-items: center;
+    left: 2rem;
+    bottom: -3.2rem;
+    width: 17.5rem;
+    padding-left: .8rem;
+    height: 3.2rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+.aniuno{ 
+    animation: salir .3s ease forwards;
+}
+.anidos{
+    bottom: 3.1rem;
+    animation: entrar .3s ease forwards;
+    animation-delay: 1s;
+}
+@keyframes salir {
+    100% {
+        bottom: 3.1rem;
+    }
+}
+@keyframes entrar {
+
+    100% {
+        bottom: -3.2rem;
+    }
+}

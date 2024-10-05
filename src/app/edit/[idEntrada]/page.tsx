@@ -6,6 +6,8 @@ import { useQuill } from "react-quilljs"
 import 'quill/dist/quill.snow.css'
 import toolbar from '../../../componentes/toolbar'
 import './edit.css'
+import nubed from './nubed.png'
+import nubea from './nubeac.png'
 
 export default function PageSector2({params}) {
 
@@ -24,6 +26,8 @@ export default function PageSector2({params}) {
 
     const [acordeon, setAcordeon]= useState(0)
 
+    const [existe, setExiste] = useState('loader')
+
     const {quill, quillRef} = useQuill({
         modules: {
             toolbar: toolbar
@@ -32,8 +36,15 @@ export default function PageSector2({params}) {
 
     async function  pedirEntrada (id) { 
         const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/entrada/${id}`)
-      
+
         const entrada = await response.json()
+        
+        if(entrada.inexistente){
+            setExiste('no')
+        }else{
+            setExiste('si')
+        }
+
         return entrada
     }
 
@@ -45,18 +56,40 @@ export default function PageSector2({params}) {
                 body: JSON.stringify(entrada)
             }
         )
-      
+        
         const entradaActualizada = await response.json()
+
+        setCambiado('actualizado')
+       // aviso.current.innerHTML = 'ok'
         return entradaActualizada
     }
 
+    //inicio-cambio-actualizando-actualizado
+    const [cambiado, setCambiado] = useState('inicio')
+    ///
     useEffect(() => { pedirEntrada(params.idEntrada).then(entrada2=> { setEntrada(entrada2)} )}, [])
-    useEffect(() => { quill && entrada.texto ? quill.setContents(JSON.parse(entrada.texto)) : '' }, [quill? quill : '', entrada])
 
+    useEffect(() => { 
+            if(quill) {
+                entrada.texto? quill.setContents(JSON.parse(entrada.texto)) : ''
+
+                quill.on('text-change', () => {
+                    setCambiado('cambio')
+                })
+                    setCambiado('inicio')
+            }
+            
+        },[quill, entrada]
+    )
+   
     return (
-        <div className={style.editor}>
+        <>
+        <div className={style.no_existe} style={{display: existe == 'no'? 'flex' :  'none'}}>
+            <p>No se ha encontrado la página</p>
+        </div>
+        <div className={style.editor} style={{display: existe == 'si'? 'grid' : 'none'}}>
             <div className={style.alto}>
-
+        
                 <div className={style.tituloS}>
                     <div className={style.leyenda} style={{transition:' all 2s' ,color:colorTitulo}}>Título</div>
                     <input  
@@ -65,28 +98,45 @@ export default function PageSector2({params}) {
                         type="text" name="title"
                         onFocus={()=> {setColorTitulo('blue'), setMarcadorEstado('visible')} }
                         onBlur={()=> {setColorTitulo('grey'), setMarcadorEstado('invisible')} }
+                        onChange={()=> {setCambiado('cambio')}}
                     />
                     <div className={/*`${style.marcador} ${*/marcadorEstado == 'visible' ? style.marcadorvisible : style.marcadorinvisible/* }`*/}></div>
                     <div className={style.subrayado}></div>
                 </div>
+                <div className={style.botonactualizar}>   
+                
+                    <div className={style.aviso_actualizacion} style={{display:cambiado == 'inicio' || cambiado == 'actualizando'? 'none' : 'block'}}>
+                        {cambiado == 'cambio'? <img src={nubed.src}></img> : <img src={nubea.src}></img> }
+                    </div>
 
-                <div 
-                    className={style.botonactualizar} 
-                    onClick={() =>
-                        {
-                            actualizarEntrada(params.idEntrada,
-                                {
-                                    id: params.idEntrada,
-                                    titulo: tituloRef.current.value,
-                                    texto: JSON.stringify(quill.getContents()).replaceAll('\'', '\'\''),
-                                    textoplano: ( ' ' + quill.getText().replaceAll('/', ' ').replaceAll('|', ' ').replaceAll('\n', ' ').replaceAll('\t', ' ').replaceAll('\\', ' ').replaceAll('\r', ' ').replaceAll('\v', '').replaceAll('\'', ' ').replaceAll('\"', ' ').replaceAll(",", " ").replaceAll(".", " ")  + ' ' ).toLowerCase(),
-                                    textoplanovisible: quill.getText().replaceAll('\'', '\'\'')
+                    <div className={style.aviso_actualizando} style={{display:cambiado == 'actualizando'? 'block' : 'none'}}>
+                      <div className={style.rueda}></div>
+                    </div>
+         
+                    <div 
+                        className={style.botonactualizar_dentro}
+                        style={{cursor:cambiado == 'cambio'? 'pointer' : 'default'}}      
+                        onClick={() =>
+                            {
+                                if( cambiado == 'cambio'){
+                                    setCambiado('actualizando')
+
+                                    actualizarEntrada(params.idEntrada,
+                                        {
+                                            id: params.idEntrada,
+                                            titulo: tituloRef.current.value,
+                                            titulobuscar: ( ' ' + tituloRef.current.value.replaceAll('*', ' ').replaceAll('/', ' ').replaceAll('|', ' ').replaceAll('\n', ' ').replaceAll('\t', ' ').replaceAll('\\', ' ').replaceAll('\r', ' ').replaceAll('\v', '').replaceAll('\'', ' ').replaceAll('\"', ' ').replaceAll(",", " ").replaceAll(".", " ")  + ' ' ).toLowerCase(),
+                                            texto: JSON.stringify(quill.getContents()).replaceAll('\'', '\'\''),
+                                            textoplano: ( ' ' + quill.getText().replaceAll('/', ' ').replaceAll('|', ' ').replaceAll('\n', ' ').replaceAll('\t', ' ').replaceAll('\\', ' ').replaceAll('\r', ' ').replaceAll('\v', '').replaceAll('\'', ' ').replaceAll('\"', ' ').replaceAll(",", " ").replaceAll(".", " ")  + ' ' ).toLowerCase(),
+                                            textoplanovisible: quill.getText().replaceAll('\'', '\'\'')
+                                        }
+                                    ) 
                                 }
-                            ) 
-                        } 
-                    }
-                >   
-                    Actualizar
+                            } 
+                        }
+                    >
+                        Actualizar
+                    </div>
                 </div>  
             </div>
             <div className={style.bajo}>
@@ -153,6 +203,7 @@ export default function PageSector2({params}) {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

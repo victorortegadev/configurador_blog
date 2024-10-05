@@ -87,31 +87,3 @@
     color: #00838f;
     font-weight: bold;
 }
-
-/*///////////////////////////////////////para recordar
-
-/*.seleccionador_blog{
-    cursor: pointer;*/
-   /* background: linear-gradient(to right,  rgb(223, 223, 223) 50%, white 0%);
-    background-size: 200% 100%; 
-    background-position: 100% 50%;*/
-    /*background: radial-gradient();
-}
-.animacionGradiente {
-    animation: gradiente .5s ;
-}
-@keyframes gradiente {
-    /*  0% {
-          background-position: 100% 50%;
-      }
-      100% {
-          background-position: 0% 50%;
-      }*/
-  
-    /*  0% {
-          background-position: 100% 50%;
-      }
-      100% {
-          background-position: 200% 50%;
-      }*/
- /* }*/

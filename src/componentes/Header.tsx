@@ -1,8 +1,10 @@
 'use client'
 import { useRouter } from 'next/navigation'
 import styles from './header.module.css'
-import {signOut, useSession} from "next-auth/react"
+import {signOut, useSession, signIn} from "next-auth/react"
 import { useEffect, useState } from 'react'
+import usuario from './usuario.png'
+import bloque from './bloque.png'
 
 export default function Header({onAction}) {
 
@@ -13,7 +15,7 @@ export default function Header({onAction}) {
 
   const [sessionIS, setSessionIS] = useState('')
 
-  useEffect(()=> {setSessionIS(session? session.user.image : '')}, [session])
+  useEffect(()=> {setSessionIS(session? session.user.image : usuario.src)}, [session])
 
   return (
     <header className={styles.header} >
@@ -30,16 +32,19 @@ export default function Header({onAction}) {
             </path>
           </svg>
         </p>
-        <div className={styles.logo}><img src="https://www.blogger.com/img/logo_blogger_40px.png"></img></div>
+        <div className={styles.logo}><img src={bloque.src}></img></div>
       </div>
 
       <div className={styles.user_image_div}>
-        <img className={styles.user_image_img} src={sessionIS}></img>
+        <img className={styles.user_image_img} src={sessionIS? sessionIS : usuario.src}></img>
       </div>
 
-      <p className={styles.cerrarSesion} onClick={()=> {signOut( {callbackUrl: process.env.NEXT_PUBLIC_URL})}}>
+      <p className={session? styles.mostrar : styles.ocultar} onClick={()=> {signOut()}}>
         cerrar sesion
       </p>   
+      <p className={session? styles.ocultar : styles.mostrar} onClick={()=> {signIn()}}>
+        Iniciar sesión
+      </p>  
     </header>
   )
 }

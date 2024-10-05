@@ -3,6 +3,7 @@ import './globals.css'
 
 import { Providers } from './providers'
 import ProviderBarra from '../context/ProviderBarra'
+import Memoria from '../componentes/memoria'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,7 +18,9 @@ export default function RootLayout({ children }) {
       <body className={inter.className}> 
         <Providers>
           <ProviderBarra>
-            {children}
+            <Memoria>
+              {children}
+            </Memoria>
           </ProviderBarra>
         </Providers>
       </body>
