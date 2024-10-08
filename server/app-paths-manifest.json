@@ -1,0 +1,13 @@
+{
+  "/_not-found": "app/_not-found.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/blog/comentarios/page": "app/blog/comentarios/page.js",
+  "/blog/configuracion/page": "app/blog/configuracion/page.js",
+  "/blog/diseno/page": "app/blog/diseno/page.js",
+  "/blog/entradas/page": "app/blog/entradas/page.js",
+  "/blog/estadisticas/page": "app/blog/estadisticas/page.js",
+  "/blog/lectura/page": "app/blog/lectura/page.js",
+  "/blog/tema/page": "app/blog/tema/page.js",
+  "/edit/[idEntrada]/page": "app/edit/[idEntrada]/page.js"
+}
