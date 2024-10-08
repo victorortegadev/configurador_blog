@@ -2,7 +2,10 @@
   "name": "configuradorblog",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://victorortegadev.github.io/configurador_blog",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -22,6 +25,7 @@
     "@types/react": "^18.3.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
+    "gh-pages": "^6.1.1",
     "typescript": "^5.4.5"
   }
 }
